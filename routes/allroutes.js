@@ -11,6 +11,7 @@ import { booksincart } from "../modules/cartbooks.js";
 import { deletecartbook } from "../modules/deletebookCartModule.js";
 import { addaddress } from "../modules/addaddress.js";
 import { orderpage } from "../modules/orderpageModule.js";
+import { searchbooks } from "../modules/searchbookModule.js";
 
 const router = express.Router();
 export const myroutes = router;
@@ -36,3 +37,5 @@ router.post("/deletecartbooks/:id",deletecartbook);
 router.post("/addaddress",addaddress);
 
 router.post("/orderdashboard",orderpage);
+
+router.get("/search/:bookname",searchbooks);
