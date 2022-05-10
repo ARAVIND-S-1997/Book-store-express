@@ -1,10 +1,12 @@
-
+// packages imports
 import jwt from "jsonwebtoken";
+
+// file imports
 import { emailsender } from "../mail.js";
 import { userdb } from "../model/signupModel.js";
 
 
-// forget password 
+// forget password function
  export const forgetpassword=(async (request, response) => {
     const { emailid } = request.body;
 

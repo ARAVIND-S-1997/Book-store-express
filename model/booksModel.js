@@ -1,10 +1,9 @@
 // importing packages and libraries
-
 import mongoose from "mongoose";
-// schema import mongoose from "mongoose";
 
 const schema = mongoose.Schema;
 
+// schema
 export const bookSchema = new schema({
     BookName: {
         type: String,

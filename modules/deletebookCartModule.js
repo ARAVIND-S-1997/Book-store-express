@@ -1,8 +1,11 @@
-
-
+// packages imports
 import jwt from "jsonwebtoken";
+
+// file imports
 import { userdb } from "../model/signupModel.js";
 
+
+// delete books from cart function
 export const deletecartbook = async (request, response) => {
     try {
         const { id } = request.params;
@@ -14,8 +17,12 @@ export const deletecartbook = async (request, response) => {
 
         const check = jwt.verify(token, process.env.SECRET_KEY);
         if (check) {
+
+            // delete books from cart
             const deletebookReq = await userdb.updateMany({ emailid: emailid }, { $pull: { cart: { _id: id } } });
             if (deletebookReq) {
+
+                // find books from cart
                 const cartbooks = await userdb.findOne({ emailid },
                     { _id: 0, firstname: 0, lastname: 0, emailid: 0, dob: 0, password: 0, addressinfo: 0 })
                     .populate("cart.BookName");

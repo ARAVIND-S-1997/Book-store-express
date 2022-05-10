@@ -2,10 +2,9 @@
 
 import mongoose from "mongoose";
 
-// schema import mongoose from "mongoose";
-
 const schema = mongoose.Schema;
 
+// schema
 export const signupSchema = new schema({
     firstname: {
         type: String,

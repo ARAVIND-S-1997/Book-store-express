@@ -1,9 +1,11 @@
+// file imports
 import { userdb } from "../model/signupModel.js";
 import { booksdb } from "../model/booksModel.js";
 
+// packages imports
 import jwt from "jsonwebtoken";
 
-// add to cart api
+// add to cart function
 export const addtocart = (async (request, response) => {
     const { id } = request.params;
     const { emailid, token } = request.headers;

@@ -1,10 +1,9 @@
-
+// file imports
 import { generatePassword } from "./passwordgenerator.js";
 import { emailsender } from "./mail.js";
-
 import { userdb } from "../model/signupModel.js";
 
-// change password
+// change password function
 export const changepassword = (async (request, response) => {
     const { authtoken } = request.headers;
     const { password } = request.body;

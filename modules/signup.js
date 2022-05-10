@@ -1,7 +1,8 @@
+// file imports
 import { userdb } from "../model/signupModel.js"
 import { generatePassword } from "../passwordgenerator.js"
 
-// signup
+// signup function
 export const signup = (async (request, response) => {
 
     const { firstname, lastname, emailid, dob, password } = request.body;
@@ -12,6 +13,7 @@ export const signup = (async (request, response) => {
         response.status(400).send("email id already exist");
     }
     else {
+        // generate new password
         const finalPassword = await generatePassword(password);
         console.log(finalPassword);
 
@@ -22,7 +24,7 @@ export const signup = (async (request, response) => {
             dob: dob,
             password: finalPassword
         })
-
+        // save data in db
         const newuser = data.save();
         response.status(200).send("successfully signed up");
 

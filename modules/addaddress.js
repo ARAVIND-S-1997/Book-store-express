@@ -1,8 +1,11 @@
+// file imports
 import { userdb } from "../model/signupModel.js";
+
+// packages imports
 import jwt from "jsonwebtoken";
 
 
-//  add address
+//  add address function
 export const addaddress = (async (request, response) => {
     try {
         const { emailid, token } = request.headers;
@@ -21,6 +24,8 @@ export const addaddress = (async (request, response) => {
 
         const verify = jwt.verify(token, process.env.SECRET_KEY);
         if (verify) {
+
+            // add address
             const adddata = await userdb.updateOne({ emailid: emailid },
                 {
                     $set: {
